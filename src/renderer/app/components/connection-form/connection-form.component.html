@@ -1,0 +1,38 @@
+<section class="section" *ngIf="!connected">
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <label class="label">Server/Host</label>
+        <div class="control is-expanded">
+          <input class="input" type="text" placeholder="ftp.server.com" [(ngModel)]="server">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Username</label>
+        <div class="control is-expanded">
+          <input class="input" type="text" placeholder="username" [(ngModel)]="username">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control is-expanded">
+          <input class="input" type="password" placeholder="••••••••" [(ngModel)]="password">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Port</label>
+        <div class="control is-expanded">
+          <input class="input" type="type" placeholder="21" [(ngModel)]="port">
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="button is-success is-outlined" (click)="connect()">Connect</button>
+</section>
+
+<section class="section" *ngIf="connected">
+  <button class="button is-danger is-outlined" (click)="disconnect()">Disconnect</button>
+</section>
