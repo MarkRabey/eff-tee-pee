@@ -21,10 +21,13 @@ export class ConnectionFormComponent implements OnInit {
   }
 
   connect() {
-    console.log(this.connected);
+    this.ftpService.connect({
+      server: this.server,
+      username: this.username,
+      password: this.password,
+      port: this.port,
+    });
 
-    this.ftpService.connect();
-    console.log(this.connected);
   }
 
   disconnect() {

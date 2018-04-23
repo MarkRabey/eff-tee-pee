@@ -3,6 +3,17 @@ import { Observable } from 'rxjs/observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 
+import * as jsftp from 'jsftp';
+
+console.log(jsftp);
+
+interface Credentials {
+  server: string;
+  username: string;
+  password: string;
+  port: number;
+};
+
 @Injectable()
 export class FtpService {
   connected: Observable<boolean>;
@@ -17,8 +28,11 @@ export class FtpService {
     return this.connected;
   }
 
-  connect() {
-    this.connectedSubject.next(true);
+  connect(credentials: Credentials) {
+    
+    this.ftp = new jsftp(credentials);
+
+    // console.log(this.ftp);
   }
 
   disconnect() {
