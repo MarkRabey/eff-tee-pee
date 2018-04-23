@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 
@@ -12,11 +11,11 @@ interface Credentials {
   username: string;
   password: string;
   port: number;
-};
+}
 
 @Injectable()
 export class FtpService {
-  connected: Observable<boolean>;
+  connected: any;
   private connectedSubject = new Subject<boolean>();
   ftp: any;
 
@@ -29,7 +28,6 @@ export class FtpService {
   }
 
   connect(credentials: Credentials) {
-    
     this.ftp = new jsftp(credentials);
 
     // console.log(this.ftp);
@@ -42,7 +40,7 @@ export class FtpService {
   getFiles() {
     return [
       {
-        name: 'A file',
+        name: 'A file'
       },
       {
         name: 'Another file'

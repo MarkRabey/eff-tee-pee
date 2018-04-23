@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FtpService } from '../../services/ftp.service';
 
 @Component({
-  selector: 'connection-form',
+  selector: 'app-connection-form',
   templateUrl: './connection-form.component.html',
   styleUrls: ['./connection-form.component.scss']
 })
@@ -11,13 +11,13 @@ export class ConnectionFormComponent implements OnInit {
   server: string;
   username: string;
   password: string;
-  port: number = 21;
-  connected: boolean = false;
+  port = 21;
+  connected = false;
 
-  constructor(private ftpService: FtpService) { }
+  constructor(private ftpService: FtpService) {}
 
   ngOnInit() {
-    this.ftpService.connected.subscribe(connected => this.connected = connected);
+    this.ftpService.connected.subscribe(connected => (this.connected = connected));
   }
 
   connect() {
@@ -25,13 +25,11 @@ export class ConnectionFormComponent implements OnInit {
       server: this.server,
       username: this.username,
       password: this.password,
-      port: this.port,
+      port: this.port
     });
-
   }
 
   disconnect() {
     this.ftpService.disconnect();
   }
-
 }
