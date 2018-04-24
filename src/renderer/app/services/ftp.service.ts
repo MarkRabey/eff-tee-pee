@@ -2,11 +2,6 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 
-import * as jsftp from 'jsftp';
-import * as jsftpRmr from 'jsftp-rmr';
-
-const Ftp = jsftpRmr(jsftp);
-
 interface Credentials {
   host: string;
   user: string;
@@ -30,7 +25,6 @@ export class FtpService {
 
   connect(credentials: Credentials) {
     console.log(credentials);
-    this.ftp = new jsftp(credentials);
 
     console.log(this.ftp);
   }
