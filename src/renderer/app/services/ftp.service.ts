@@ -3,13 +3,14 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 
 import * as jsftp from 'jsftp';
+import * as jsftpRmr from 'jsftp-rmr';
 
-console.log(jsftp);
+const Ftp = jsftpRmr(jsftp);
 
 interface Credentials {
-  server: string;
-  username: string;
-  password: string;
+  host: string;
+  user: string;
+  pass: string;
   port: number;
 }
 
@@ -28,9 +29,10 @@ export class FtpService {
   }
 
   connect(credentials: Credentials) {
+    console.log(credentials);
     this.ftp = new jsftp(credentials);
 
-    // console.log(this.ftp);
+    console.log(this.ftp);
   }
 
   disconnect() {

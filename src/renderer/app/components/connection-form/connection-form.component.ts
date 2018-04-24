@@ -8,7 +8,7 @@ import { FtpService } from '../../services/ftp.service';
   styleUrls: ['./connection-form.component.scss']
 })
 export class ConnectionFormComponent implements OnInit {
-  server: string;
+  host: string;
   username: string;
   password: string;
   port = 21;
@@ -22,9 +22,9 @@ export class ConnectionFormComponent implements OnInit {
 
   connect() {
     this.ftpService.connect({
-      server: this.server,
-      username: this.username,
-      password: this.password,
+      host: this.host,
+      user: this.username,
+      pass: this.password,
       port: this.port
     });
   }
