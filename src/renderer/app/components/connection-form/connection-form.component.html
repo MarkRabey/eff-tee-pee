@@ -1,36 +1,27 @@
-<section class="section" *ngIf="!connected">
-  <div class="field is-horizontal">
-    <div class="field-body">
-      <div class="field">
-        <label class="label">Server/Host</label>
-        <div class="control is-expanded">
-          <input class="input" type="text" placeholder="ftp.server.com" [(ngModel)]="host">
-        </div>
+<section class="uk-section" *ngIf="!connected">
+  <div class="uk-container">
+    <form class="uk-grid-small uk-child-width-1-4" uk-grid>
+      <div>
+        <input class="uk-input" type="text" placeholder="ftp.server.com" [(ngModel)]="host">
+      </div>
+      
+      <div>
+        <input class="uk-input" type="text" placeholder="username" [(ngModel)]="username">
       </div>
 
-      <div class="field">
-        <label class="label">Username</label>
-        <div class="control is-expanded">
-          <input class="input" type="text" placeholder="username" [(ngModel)]="username">
-        </div>
+      <div>
+        <input class="uk-input" type="password" placeholder="••••••••" [(ngModel)]="password">
       </div>
 
-      <div class="field">
-        <label class="label">Password</label>
-        <div class="control is-expanded">
-          <input class="input" type="password" placeholder="••••••••" [(ngModel)]="password">
-        </div>
+      <div>
+        <input class="uk-input" type="type" placeholder="21" [(ngModel)]="port">
       </div>
-
-      <div class="field">
-        <label class="label">Port</label>
-        <div class="control is-expanded">
-          <input class="input" type="type" placeholder="21" [(ngModel)]="port">
-        </div>
+  
+      <div>
+        <button class="uk-button uk-button-primary" (click)="connect()">Connect</button>
       </div>
-    </div>
+    </form>
   </div>
-  <button class="button is-success is-outlined" (click)="connect()">Connect</button>
 </section>
 
 <section class="section" *ngIf="connected">
